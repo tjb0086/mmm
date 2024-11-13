@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>CP3</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0"><p align="center">Capstone Project III: Biological Applications of Regular Expressions</p></h1>
+
+<p align="center"> <b> BEFORE STARTING THIS ASSIGNMENT, PLEASE READ ALL OF THE INSTRUCTIONS</b></p>
+
+<h2 id="toc_1">Prerequisites</h2>
+
+<ul>
+<li>Prior to starting this project, you should feel comfortable constructing regular expressions to parse text</li>
+<li>Completion of the Regex Quiz with at least 80% or higher</li>
+<li>Completion of Labs 6-7 and a solid understanding of the listed learning objectives </li>
+</ul>
+
+<h2 id="toc_2">Learning Goals</h2>
+
+<ul>
+<li>Get practice using <code>awk</code> and <code>sed</code> with regular expresssions to parse real biological datasets</li>
+<li>Get practice completing computing tasks without step-by-step instructions. As mentioned on Capstone Project #2, you will often have a specific scientific goal rather than a set of instructions for how to obtain the results. Here you will get practice building your OWN workflow for a data analysis project.</li>
+<li>Reinforcement of the concept of doing projects in a paced setting that involves mutliple sessions working on various pieces and returning after breaks and reflection</li>
+<li>As you can see from the rubric for this assignment, you will no longer be graded on your effort, but instead on your output. While you will still turn in your a script, we will not be grading it for commands as was done with Capstone #2. Instead, you will be graded on whether you get the CORRECT answers in your final tables.</li>
+<li>Refine existing code to improve efficiency.</li>
+</ul>
+
+<h2 id="toc_3">Learning Objectives</h2>
+
+<ul>
+<li>Reinforce the use of awk to count records in datasets, isolate specific columns, and perform calculations</li>
+<li>Reinforce printing tabular outputs from STDOUT</li>
+<li>Incrementally build one-liners using pipes either in a script or on the CL</li>
+<li>Get practice building regular expressions to match patterns</li>
+<li>Revisit previous scripts to refine commands</li>
+<li>Practice using ChatGPT to help with scripting</li>
+</ul>
+
+<h2 id="toc_4">Step-by-Step Instructions</h2>
+
+<h6 id="toc_5">Instructions: Often when dealing with biological problems, you are not given step-by-step instructions as you have gotten used to throughout this course. Instead, you have a specific question that you need to answer and you need to decide which approach is most useful to get the data you need. For your 3rd Capstone Project, I will not tell you the tools you need to accomplish the goals, only what the problems are that you need to solve. As with other assignments, you will need to &quot;show your work&quot;. Here that will be via a script (NOT saved history). While you may work in whatever linux environment you wish, if you plan to use sed, please note that it often has unexpected behavior on MacOS. See the Week 8 canvas page for how to get sed to behave on Mac OS.</h6>
+
+<p>For Capstone 3, you will be ALLOWED to use the internet and/or ChatGPT. If you use these outside sources, you are required to <strong>attribute it appropriately</strong> in your readme and <strong>include a transcript</strong> on any ChatGPT conversation. You are NOT allow to copy and paste the assignment into ChatGPT and you are <strong>NOT allowed to use ChatGPT on ANY non-coding parts of the assignment</strong>* (e.g. readme files, comment text, and/or reflection questions).</p>
+
+<h5 id="toc_6">Assignment: This project centers around the use of regular expressions, which we have focused on throughout this module. To complete this assignment, you will continue editing your script from Capstone 2 to build a better workflow for processing museum record datasets. You may edit the original graded script from Capstone 2 directly in your GitHub repository via GitHub Desktop.</h5>
+
+<h3 id="toc_7">Part A:</h3>
+
+<p>For this part of the assignment, you are asked to return to your original script that you have been working on throughout the semester. Now that we have wrapped up our command line section of the course, you should feel comfortable refining this script to better filter the dataset of five species museum records provided in CP2.</p>
+
+<ol>
+<li><p>Start by revisiting your code from Capstone 2. You will edit the script file to make it more efficient and do some additional analysis of these data files. </p></li>
+<li><p>First, let&#39;s improve some of the filter steps to make sure they better process the datasets. For example, you will notice that the <code>awk</code> command I gave you in CP1 resulted in some records not properly filtering for the correct columns. Let&#39;s revise this to work properly:</p>
+
+<blockquote>
+<p>Change <code>awk &#39;FS=&quot;\t&quot; {print $X, $Y}</code> to <code>awk -F&#39;\t&#39; &#39;{print $X,$Y}&#39;</code> and you will notice this fixes this issue. Specifically, the field separator argument is supplied outside of the &quot;program&quot; sent to awk as a command argument to <code>awk</code> instead. This allows it to process ALL lines of the input file as tab-delimited. Whereas the original command did not do this on the first line of the file resulting in words instead of coordinates.</p>
+</blockquote></li>
+<li><p>Similarly, look at the <code>man</code> page for the sort command and specify the tab-delimiter when sorting by the latitude and longitudes as well.</p></li>
+<li><p>Add in an additional confidence check inside of the loop to check that each input file for each species exists and is not empty.</p></li>
+<li><p>Look over the script and what it is doing to improve efficiency throughout. For example, if in CP2 you stored the command argument as a separate variable, try removing this and simply using the built in variable instead. This is more efficient than making a new variable when you already have one! Similarly, if you get an error message when making directories, add the optional flag to <code>mkidr</code> to silence that error.</p></li>
+<li><p>Addiitonally, any steps where you are able to use pipes instead of generating temporary files that you then remove should be done to improve efficiency.</p></li>
+<li><p>Finally, add a column to the final combined output to include the species name in addition to the latitude and longitude coordinates. The final output should have THREE columns and be tab-delimited. This file will be the input to your fourth capstone project!</p></li>
+</ol>
+
+<h3 id="toc_8">Part B:</h3>
+
+<ol>
+<li><p>Next, we will sift through the records in more depth than simply calculating the percent with locality information. First, let&#39;s make sure that ALL of the records belong to the same species/sub-species. Check that the columns for this information are the same for ALL the records. If they are from a different than what is indicated below, then remove them by saving an intermediate filtered file. Do this step BEFORE filtering for the latitude and longitude coordinate steps in your updated script file (just after removing the header line).</p>
+
+<blockquote>
+<p>The five species/subspecies that should be in each file are as follows:</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Species</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0018126-240906103802322.csv</td>
+<td><em>Mus musculus castaneus</em></td>
+</tr>
+<tr>
+<td>0018129-240906103802322.csv</td>
+<td><em>Mus musculus domesticus</em></td>
+</tr>
+<tr>
+<td>0018130-240906103802322.csv</td>
+<td><em>Mus musculus</em> OR <em>Mus musculus musculus</em></td>
+</tr>
+<tr>
+<td>0018131-240906103802322.csv</td>
+<td><em>Mus musculus molossinus</em></td>
+</tr>
+<tr>
+<td>0021864-240906103802322.csv</td>
+<td><em>Mus spretus spp.</em></td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>Tip: Look back at the code used to capture the species name in CP2. This isolated only information on line 2 of the file (the first record), but you should check ALL lines to see if any of the files have extra records from other species/subspecies. You can do this check outside of your script on the command line and then proceed based on those files that are problematic. Note: this will need to be <em>hard-coded</em> to this dataset.</p>
+</blockquote></li>
+<li><p>Next, let&#39;s make a table of record counts per specific museums (column label: &quot;institutionCode&quot;). See Part C for the formatting and naming conventions for this file. Again, do this on records before filtering for locality information (after filtering for species, but before any other filtering).</p></li>
+<li><p>To do this, get a count of records from each museum/institution from each subspecies file based on the table below. <strong>For any files that have no records from the museums/institutions listed below, simply record a zero in the table</strong>. This can be done programmatically in your script using a conditional statement. </p>
+
+<table>
+<thead>
+<tr>
+<th>Musuem</th>
+<th>AMNH</th>
+<th>FMNH</th>
+<th>iNaturalist</th>
+<th>KU</th>
+<th>MVZ</th>
+<th>NHMUK</th>
+<th>NMR</th>
+<th>SMF</th>
+<th>USNM</th>
+<th>YPM</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Count in File 0018126-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018129-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018130-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018131-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0021864-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>Note: the first column should contain the species name from the variable you created in CP2. Not the text here which indicated the values that should in each row.</p>
+</blockquote></li>
+<li><p>Now, instead of focusing on the museum source, let&#39;s make a table of the types of specimen (&quot;basisOfRecord&quot;). Specifically, let&#39;s focus on the following types and make a table for each species file: </p>
+
+<table>
+<thead>
+<tr>
+<th>Specimen Type</th>
+<th>PRESERVED_SPECIMEN</th>
+<th>HUMAN_OBSERVATION</th>
+<th>OCCURRENCE</th>
+<th>MATERIAL_SAMPLE</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Count in File 0018126-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018129-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018130-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018131-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0021864-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>Note: the first column should contain the species name from the variable you created in CP2. Not the text here which indicated the values that should in each row.</p>
+
+<p>Include examples of other types of records in your updated readme for this project.</p>
+</blockquote></li>
+<li><p>Next, let&#39;s look into the records from citizen science sources (iNaturalist) for ONLY <em>Mus musculus musculus</em> records. For these, let&#39;s make a table of the number of records per year made by the public.</p>
+
+<table>
+<thead>
+<tr>
+<th>Years</th>
+<th>Count in <em>Mus musculus musculus records</em></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Year 1</td>
+<td></td>
+</tr>
+<tr>
+<td>Year 2</td>
+<td></td>
+</tr>
+<tr>
+<td>Year 3</td>
+<td></td>
+</tr>
+<tr>
+<td>Year ...</td>
+<td></td>
+</tr>
+<tr>
+<td>Year N</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>Note: the first column should contain the actual years for these records. The values in the table above are meant as examples.</p>
+</blockquote></li>
+<li><p>Finally, we will want to filter for records with locality in those top museums. Let&#39;s repeat the Table we made in #3, but only for records with latitude/longitude coordinates. First, <strong>remove</strong> all records without locality information as you have done before. An important difference is that you will need to KEEP the other columns when you do this in order to make the table below.</p></li>
+<li><p>Finally, go back and fill in the count for each museum with the updated counts of those with locality records. </p>
+
+<table>
+<thead>
+<tr>
+<th>Musuem</th>
+<th>AMNH</th>
+<th>FMNH</th>
+<th>iNaturalist</th>
+<th>KU</th>
+<th>MVZ</th>
+<th>NHMUK</th>
+<th>NMR</th>
+<th>SMF</th>
+<th>USNM</th>
+<th>YPM</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Count in File 0018126-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018129-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018130-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0018131-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Count in File 0021864-240906103802322.csv</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+
+<h3 id="toc_9">Part C:</h3>
+
+<ol>
+<li><p>Congrats on making it through this project! Now that you are done, convert your FOUR tables into text files as you did at the end of Labs 6 and 7. </p></li>
+<li><p>These files should have SPECIFIC naming conventions listed below. Failure to follow this convention will slow down the grading process as we will use the command diff between our key files and your tables to faciliate quick grading. Manually editing the code to follow unconventional file formats will slow us down significantly in getting these back to you in a timely manner.</p>
+
+<ul>
+<li>Table 1: museum_count.txt</li>
+<li>Table 2: specimen_count.txt</li>
+<li>Table 3: citizen_count_per_year.txt</li>
+<li>Table 4: museum_count_filtered.txt</li>
+</ul></li>
+<li><p>Upload the four table files to your GitHub repository from Capstone 2.</p></li>
+<li><p>Upload your updated script to the same respository and final filtered locality records with THREE columns. </p></li>
+<li><p>Update your README to describe the updated filtering script with the improved computational efficiency. Also describe the additional steps we have done in Part B in your README. Include any other oddities you noticed in the dataset! You can choose to include ONE of the four tables you made and write a description of how you arrived at the information in the table. Attribute any outside sources appropriately.</p></li>
+<li><p>If you used ChatGPT at ALL during this assignment, upload a copy of the transcript to Canvas along with your zipped repository file and your reflection. </p></li>
+</ol>
+
+<h2 id="toc_10">Reflection Questions (5 pts)</h2>
+
+<h5 id="toc_11">Lastly, respond to the following reflection questions, and upload your responses titled <code>NAME_reflection.txt</code> to canvas along with your zipped repository from GitHub. In your reflection, answer the following questions:</h5>
+
+<ol>
+<li><p>Compare the first and last table you made in this project. What do the differences in numbers tell you about each institution and the probability that it will have locality information for the records it includes in the GBIF database? Why do you think some sources of data are more likely to have this information than others?</p></li>
+<li><p>Thinking back over this project from when you first encountered this dataset in Capstone 1 through to the script you have now made, how do you feel the analysis you have done has improved? Specifically, how does your command history from CP1 compare to the script you made in Capstone 2 and to this script for this third Capstone? How have the changes you made improved computational efficiency and/or reproducibility? Which of the skills you learned made these updates possible?</p></li>
+<li><p>Now having seen several file formats in this course (e.g. museum records/fasta/VCF/etc), what are some features of various formats you have encountered that lend themselves to different types of data analysis you have done in the course?</p>
+
+<h4 id="toc_12">This capstone project completes your basic training on the command line. (We will return to it for the final!) The next two questions ask you to reflect on these first 10 weeks of the course:</h4></li>
+<li><p>In the first 3 modules of the course, what topics were <strong>not</strong> covered that you wish you had learned? It is OK to say you feel like you have learned ENOUGH!</p></li>
+<li><p>In the beginning of the semester, I made the analogy that this course is like learning a foreign language. Many study abroad students find they lose their language skills when they return home unless they dedicate time to keeping their skills sharp. <strong>What are some things YOU could do to continue your training on command line so as not to lose the skills you have learned in the last 10 weeks?</strong></p></li>
+</ol>
+
+
+
+
+</body>
+
+</html>
